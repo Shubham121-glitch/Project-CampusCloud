@@ -1,0 +1,248 @@
+/* Approve Course Request — Page Styles
+   Designed to match main.css variables and be responsive
+*/
+.container {
+    max-width: 1200px;
+    margin: 28px auto;
+    padding: 0 18px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.page-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.muted {
+    color: var(--muted);
+    margin: 4px 0 0;
+}
+
+.form-card,
+.task-card {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+}
+
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.task-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.task-title h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.task-title p {
+    margin: 4px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.badge-pending {
+    background: linear-gradient(90deg, var(--primary-light), var(--primary));
+    color: white;
+}
+
+.badge-add {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.badge-edit {
+    background: var(--secondary);
+    color: white;
+}
+
+.badge-approved {
+    background: linear-gradient(90deg, var(--success), #059669);
+    color: white;
+}
+
+.badge-rejected {
+    background: linear-gradient(90deg, var(--danger), #dc2626);
+    color: white;
+}
+
+.task-details {
+    border-top: 1px dashed var(--border);
+    padding-top: 10px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+.detail-row .label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.remarks-textarea {
+    width: 100%;
+    min-height: 72px;
+    margin-top: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.history-table {
+    margin-top: 6px;
+}
+
+.history-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.history-table th,
+.history-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--surface-2);
+    text-align: left;
+}
+
+.history-table th {
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+/* Action area above history */
+.page-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.page-actions form {
+    display: inline-block;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+}
+
+/* responsiveness */
+@media (max-width:900px) {
+    .tasks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .page-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Print styles (minimal) */
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .nav,
+    .btn,
+    .page-actions,
+    .action-buttons,
+    form,
+    textarea {
+        display: none !important;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .task-card,
+    .form-card {
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+    }
+}

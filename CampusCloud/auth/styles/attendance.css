@@ -1,0 +1,289 @@
+
+/* Main Layout Container */
+.attendance-container,
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap);
+    margin-bottom: 18px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--text);
+}
+
+.page-sub {
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* Filter Section */
+.attendance-filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.attendance-filter input,
+.attendance-filter select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--text);
+    color: var(--text);
+    background: transparent;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.attendance-filter input::placeholder {
+    color: #a1aab7;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0;
+    transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--primary-2));
+    color: var(--text);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.15);
+}
+
+.btn-ghost {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    color: var(--text);
+}
+
+.btn:hover {
+    opacity: 0.92;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Cards */
+.card {
+    background: var(--surface-2);
+    border-radius: var(--rounded);
+    padding: 16px;
+    border-radius: .2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.card-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    border: 1px solid var(--text);
+}
+
+.table thead th {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.03), rgba(15, 23, 42, 0.015));
+    padding: 12px 14px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    text-align: left;
+    position: sticky;
+    border: 1px solid var(--text);
+    top: 0;
+}
+
+
+.table tbody td {
+    padding: 10px 14px;
+    border: 1px solid var(--text);
+    font-size: 0.95rem;
+}
+
+.table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.03), rgba(6, 182, 212, 0.02));
+}
+
+/* Editable Inputs */
+.table input,
+.table select,
+.attendance-editable {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #ffffff;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.attendance-editable:focus,
+.table select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* Save highlight */
+.saved-highlight {
+    animation: savedAnim 1s ease-out;
+}
+
+@keyframes savedAnim {
+    0% {
+        background: rgba(34, 197, 94, 0.18);
+    }
+
+    100% {
+        background: transparent;
+    }
+}
+
+/* Status Pills */
+.status-pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.status-present {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--success);
+}
+
+.status-absent {
+    background: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+}
+
+.status-leave {
+    background: rgba(249, 115, 22, 0.12);
+    color: var(--warning);
+}
+
+/* Empty State */
+.empty-state {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.03), rgba(15, 23, 42, 0.01));
+    border-radius: 8px;
+    color: var(--muted);
+}
+
+/* Responsive — Mobile Optimized Cards */
+@media (max-width: 900px) {
+    .attendance-container {
+        padding: 12px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block;
+        background: var(--panel);
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+    }
+
+    .table tbody td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--muted);
+        margin-right: 10px;
+    }
+}
+
+/* Print Mode */
+@media print {
+
+    .btn,
+    .attendance-filter,
+    .attendance-actions {
+        display: none !important;
+    }
+
+    .attendance-container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* Accessibility */
+:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.25);
+    border-radius: 6px;
+}
+
+/* Utilities */
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 0.9rem;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+.mb-12 {
+    margin-bottom: 12px;
+}
+
+.truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* END - Premium Attendance Styles */

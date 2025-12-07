@@ -1,0 +1,108 @@
+/* Internal marks — polished theme-aware styles */
+/* Uses theme variables defined in auth/styles/main.css (e.g. --surface, --primary, --border) */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 20px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title { font-size: 1.3rem; margin: 0; font-weight: 700 }
+.muted { color: var(--text-secondary); font-size: 0.95rem }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.card:hover{ box-shadow: var(--shadow-md) }
+
+.section-card { margin-bottom: 16px }
+.section-header h2 { font-size: 1.05rem; margin: 0; font-weight: 700 }
+
+.table-responsive { overflow: auto; border-radius: 8px }
+.table { width:100%; border-collapse: collapse; font-size:0.95rem }
+.table thead th { background: var(--surface-2); padding: 10px 12px; text-align:left; border-bottom:1px solid var(--border); color:var(--text-secondary); font-weight:700 }
+.table tbody td { padding:10px 12px; border-bottom:1px solid var(--border) }
+.table tbody tr:hover td { background: linear-gradient(90deg, rgba(79,70,229,0.03), transparent) }
+.table tbody tr:last-child td { border-bottom: none }
+
+.approved-marks { font-weight:700; text-align:center; color:var(--text); min-width:64px }
+
+.proposed-input, .mark-input { padding:8px 10px; border:1px solid var(--border); border-radius:8px; transition: box-shadow .18s ease }
+.proposed-input:focus, .mark-input:focus { outline: none; box-shadow: 0 8px 30px var(--primary-glow) }
+
+.btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer; border:none; transition:var(--transition) }
+.btn-small { padding:6px 10px; font-size:0.9rem }
+.btn-primary { background:var(--primary); color:var(--surface); box-shadow: 0 6px 18px var(--primary-glow) }
+.btn-primary:hover { background:var(--primary-hover) }
+.btn-outline { background: transparent; color: var(--primary); border:1px solid var(--primary) }
+.btn-danger { background:var(--danger); color:var(--surface) }
+.btn-success { background:var(--success); color:var(--surface) }
+
+.card h3 { margin:0 0 8px; font-size:1rem }
+
+.alert { padding:12px 14px; border-radius:10px; margin-bottom:14px }
+.alert-success { background: rgba(16,185,129,0.08); color:var(--success); border:1px solid rgba(16,185,129,0.12) }
+.alert-error, .alert-danger { background: rgba(239,68,68,0.06); color:var(--danger); border:1px solid rgba(239,68,68,0.08) }
+.alert-warning { background: rgba(245,158,11,0.06); color:var(--warning); border:1px solid rgba(245,158,11,0.08) }
+
+/* Inline save/propose status */
+.save-status { display:inline-block; margin-left:8px; width:18px; height:18px; vertical-align:middle }
+.save-status.status-saving { background: conic-gradient(var(--primary) 0 25%, transparent 0); border-radius:50%; animation:spin 1s linear infinite }
+.save-status.status-ok { background: var(--success); border-radius:50%; box-shadow: 0 0 0 6px rgba(16,185,129,0.08) }
+.save-status.status-error { background: var(--danger); border-radius:50%; box-shadow: 0 0 0 6px rgba(239,68,68,0.06) }
+@keyframes spin { to { transform: rotate(360deg) } }
+
+.save-mark, .propose-mark { padding:6px 10px; font-size:0.85rem; border-radius:8px }
+
+.card h3:hover { opacity: 0.95 }
+
+/* responsive */
+@media (max-width: 900px) {
+  .container { padding:12px }
+  .table thead { display:none }
+  .table tbody td { display:block; padding:10px }
+  .table tbody tr { margin-bottom:12px; border-radius:10px; border:1px solid var(--border); overflow:hidden }
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace }
+
+/* subtle utility */
+.row-actions { display:flex; gap:8px; align-items:center }
+
+/* Search bar */
+.internal-search { display:flex; gap:8px; align-items:center; margin-top:12px }
+.internal-search input[type="search"] { width:360px; max-width:100%; padding:10px 14px 10px 40px; border-radius:12px; border:1px solid var(--border); background:var(--surface); color:var(--text); box-shadow:none; transition: box-shadow .18s ease, border-color .12s ease }
+.internal-search input[type="search"]::placeholder { color: var(--text-secondary); }
+.internal-search input[type="search"]:focus { outline:none; border-color: var(--primary); box-shadow: 0 8px 30px var(--primary-glow) }
+.internal-search input[type="search"] { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23AAAAAA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+}
+.internal-search .search-hint { color:var(--text-secondary); font-size:0.9rem }
+
+/* Clear button inside search bar */
+.internal-search .clear-search { appearance:none; -webkit-appearance:none; border:0; background:transparent; color:var(--text-secondary); font-size:1.05rem; padding:6px; border-radius:8px; cursor:pointer; margin-left:-6px }
+.internal-search .clear-search:hover { color:var(--text); background: rgba(0,0,0,0.04) }
+.internal-search .clear-search:focus { outline:none; box-shadow:0 6px 18px rgba(0,0,0,0.06) }
+
+.highlight { background: linear-gradient(90deg, rgba(255,236,179,0.45), transparent); }

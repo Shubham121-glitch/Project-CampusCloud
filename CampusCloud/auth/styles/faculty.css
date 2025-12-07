@@ -1,0 +1,291 @@
+/* =========================================
+   FACULTY MANAGEMENT PAGE
+   Modern form styling with auto-generated credentials
+========================================= */
+
+.faculty-container {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--text);
+}
+
+.faculty-card {
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faculty-card h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+.faculty-card .subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   FORM GROUPS
+========================================= */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--surface);
+  transition: all 0.3s;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group input:readonly {
+  background: #f5f5f5;
+  cursor: default;
+  color: var(--muted);
+}
+
+.dark .form-group input:readonly {
+  background: #2a2a3e;
+}
+
+/* =========================================
+   INPUT WITH ACTION (User ID + Button)
+========================================= */
+
+.input-with-action {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-with-action input {
+  flex: 1;
+  min-width: 0;
+}
+
+.btn-regenerate,
+.btn-copy {
+  padding: 10px 12px;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-regenerate:hover,
+.btn-copy:hover {
+  background: var(--accent);
+  color: var(--muted);
+}
+
+.btn-regenerate:active,
+.btn-copy:active {
+  transform: scale(0.98);
+}
+
+/* =========================================
+   STATUS & ERROR MESSAGES
+========================================= */
+
+.status {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  font-weight: 500;
+  min-height: 1.2em;
+}
+
+.status.success {
+  color: #48bb78;
+}
+
+.status.error {
+  color: #e53e3e;
+}
+
+.status.warning {
+  color: #ed8936;
+}
+
+.error {
+  display: block;
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  font-weight: 500;
+  min-height: 1.2em;
+}
+
+/* =========================================
+   FORM ROW (two columns)
+========================================= */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 500px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   FORM ACTIONS
+========================================= */
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: var(--text);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  color: var(--surface-2);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--text);
+}
+
+.btn-outline:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  border:none;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+.dark .form-group input {
+  background: #2a2a3e;
+  border-color: #444;
+  color: #eee;
+}
+
+.dark .form-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.dark .btn-regenerate,
+.dark .btn-copy {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .faculty-card {
+    padding: 28px 20px;
+  }
+
+  .faculty-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input {
+    padding: 11px 12px;
+    font-size: 16px; /* prevent zoom on iOS */
+  }
+
+  .input-with-action {
+    gap: 8px;
+  }
+
+  .btn-regenerate,
+  .btn-copy {
+    padding: 9px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+.page-header {
+    padding: 32px 30px;
+}

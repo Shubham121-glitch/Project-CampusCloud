@@ -1,0 +1,841 @@
+/* ============================
+   LAYOUT
+============================ */
+.layout {
+    display: flex;
+    height: 100vh;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+/* ============================
+   SIDEBAR
+============================ */
+.sidebar {
+    width: 270px;
+    background: var(--surface);
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-hover);
+}
+
+.brand {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 24px;
+}
+
+.profile-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.profile-box > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    background: var(--surface-2);
+    color: var(--text);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.username {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.role {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.menu-label {
+    margin: 14px 0 6px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--muted);
+    letter-spacing: .6px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    margin: 4px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.12s ease;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.menu-item:hover {
+    background: var(--surface-2);
+    border: 1px solid rgba(15,23,42,0.04);
+}
+
+.menu-item.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(79,70,229,0.12);
+}
+
+.menu-item.danger {
+    color: var(--danger);
+}
+
+.menu-item .icon {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--surface-2);
+    font-size: 0.95rem;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--muted);
+}
+
+/* ============================
+   MAIN CONTENT
+============================ */
+.main {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
+
+.main::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-hover);
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    background: var(--surface);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    align-items: center;
+    min-height: 220px;
+}
+
+.hero-text h1 {
+    margin: 0 0 12px;
+    font-size: 2.4rem;
+}
+
+.hero-text p {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.hero-img {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-shortcuts {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.social-shortcuts li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.social-shortcuts li a:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.social-shortcuts li a.facebook {
+    background: #1877F2;
+    color: #fff;
+}
+
+.social-shortcuts li a.instagram {
+    background: #E1306C;
+    color: #fff;
+}
+
+.social-shortcuts li a.google {
+    background: #cacaca;
+    color: #fff;
+}
+
+.social-shortcuts li a.whatsapp {
+    background: #25D366;
+    color: #fff;
+}
+
+.quick-panels {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.dashboard-pannels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* ============================
+   TO-DO LIST CLEAN STYLING
+============================ */
+.todo-list {
+    max-width: 450px;
+    width: 100%;
+    height: 400px;
+    background: var(--surface);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+}
+
+.todo-list h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.todo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.todo-input input {
+    flex: 1;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--text);
+    font-size: 1rem;
+    outline: none;
+    color: var(--text);
+    background: var(--surface);
+    transition: border 0.2s, background 0.2s;
+}
+
+.todo-input input:focus {
+    border-color: var(--accent);
+}
+
+.todo-input button {
+    padding: 14px 0;
+    border-radius: 12px;
+    border: none;
+    background: var(--accent);
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid var(--text);
+}
+
+.todo-input button:hover {
+    background: var(--accent);
+    border: 1px solid var(--info);
+    color: var(--info);
+}
+
+.todo-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: var(--glass);
+    border: 1px solid var(--text);
+    margin-bottom: 12px;
+    transition: background 0.15s;
+}
+
+.todo-items li:hover {
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.todo-items li.completed span {
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: var(--muted);
+}
+
+.todo-items li span {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.todo-items li div {
+    display: flex;
+    gap: 8px;
+}
+
+.todo-items li button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.15s;
+}
+
+.todo-items li button:hover {
+    transform: scale(1.1);
+}
+
+.todo-items li button.delete-btn {
+    color: var(--danger);
+}
+
+.todo-items li button.toggle-btn {
+    color: var(--accent);
+}
+
+.todo-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-hover);
+}
+
+/* NOTIFICATION PANNEL========================== */
+/* =============================
+   Notifications & Tasks Layout
+============================= */
+.notifications-hub,
+.notifications-header,
+.task-list,
+.empty-state {
+    width: 100%;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.notifications-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.notifications-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.notifications-header .subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.task-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.task-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    min-height: 160px;
+}
+
+.task-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    transition: all 0.4s ease;
+}
+
+.task-card.status-pending::before {
+    background: #f59e0b;
+}
+
+.task-card.status-approved::before {
+    background: #10b981;
+}
+
+.task-card.status-rejected::before {
+    background: #ef4444;
+}
+
+.task-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.task-content h4 {
+    margin: 0 0 12px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.status-badge.pending {
+    background: #fff3cd;
+    color: #d97706;
+}
+
+.status-badge.approved {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-badge.rejected {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+    align-items: center;
+}
+
+.action-form {
+    display: inline;
+}
+
+.btn-approve,
+.btn-reject,
+.btn-remove {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.btn-sm {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
+.btn-approve {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.btn-reject {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+    color: white;
+}
+
+.btn-remove {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.btn-approve:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-reject:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+}
+
+.btn-remove:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.5);
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-md);
+}
+
+.empty-state .empty-icon {
+    font-size: 3rem;
+    color: var(--primary);
+}
+
+/* Dark Mode Enhancements */
+.dark .task-card {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .status-badge.pending {
+    background: rgba(251, 146, 60, 0.2);
+    color: #fbbf24;
+}
+
+.dark .status-badge.approved {
+    background: rgba(34, 197, 94, 0.2);
+    color: #86efac;
+}
+
+.dark .status-badge.rejected {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+/* Dark mode scrollbars */
+.dark .sidebar,
+.dark .main,
+.dark .todo-list {
+    scrollbar-color: rgba(129, 140, 248, 0.6) rgba(255, 255, 255, 0.05);
+}
+
+.dark .sidebar::-webkit-scrollbar-track,
+.dark .main::-webkit-scrollbar-track,
+.dark .todo-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .sidebar::-webkit-scrollbar-thumb,
+.dark .main::-webkit-scrollbar-thumb,
+.dark .todo-list::-webkit-scrollbar-thumb {
+    background-color: rgba(129, 140, 248, 0.6);
+}
+
+.dark .sidebar::-webkit-scrollbar-thumb:hover,
+.dark .main::-webkit-scrollbar-thumb:hover,
+.dark .todo-list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(165, 180, 252, 0.8);
+}
+
+/* Profile edit and small controls */
+#edit-profile-btn {
+    background: transparent;
+    border: 1px solid rgba(15,23,42,0.06);
+    padding: 4px 8px;
+    font-size: 0.82rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+#edit-profile-btn:hover {
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+#edit-profile-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#edit-profile-form input[type="text"] {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(15,23,42,0.06);
+    font-size: 0.95rem;
+    width: 160px;
+    background: transparent;
+    color: var(--text);
+}
+
+#edit-profile-form .btn {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+}
+
+/* Hamburger menu toggle - hidden by default on desktop */
+@media (min-width: 769px) {
+    #mobile-sidebar-toggle {
+        display: none !important;
+    }
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-img {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* MOBILE SIDEBAR RESPONSIVE */
+@media (max-width: 768px) {
+    #mobile-sidebar-toggle {
+        display: block !important;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        font-size: 1.4rem;
+        padding: 10px 14px;
+        border: none;
+        background: transparent;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #mobile-sidebar-toggle:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+    }
+
+    #mobile-sidebar-toggle:active {
+        transform: scale(0.96);
+    }
+
+    .hero {
+        margin-top: 2.5rem;
+    }
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        height: 100%;
+        width: 270px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        background: var(--surface);
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+        padding-top: 80px;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .main {
+        padding: 15px 10px;
+    }
+
+    .dashboard-pannels {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero,
+    .quick-panels {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .todo-list,
+    .notifications-header,
+    .task-list {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .todo-list {
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-shortcuts {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
